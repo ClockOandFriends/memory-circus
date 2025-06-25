@@ -1,4 +1,3 @@
-
 <iframe srcdoc="
   <!DOCTYPE html>
   <html>
@@ -49,14 +48,14 @@
     <div id='game'></div>
     <script>
       const images = [
-        'https://static.wixstatic.com/media/7d7abb_53a1e82636fc42f5a05c4295169ac90b~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_2777031e85994bd685995c88320e519b~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_0862628e9eb64b55953cab744d84ba87~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_a71fcfee3fa54436a4b16841d7ccfdc0~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_10f2a55f72714c5ab14f34294150dd60~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_83dbbf2c197440ab97368506deddcd1a~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_aa192c2bf3a74efabf15399ab88413c5~mv2.png',
-        'https://static.wixstatic.com/media/7d7abb_c917a2141e2244b1ba3bce2276622015~mv2.png'
+        'img1.png',
+        'img2.png',
+        'img3.png',
+        'img4.png',
+        'img5.png',
+        'img6.png',
+        'img7.png',
+        'img8.png'
       ];
       let gameGrid = images.concat(images).sort(() => 0.5 - Math.random());
       const game = document.getElementById('game');
@@ -67,10 +66,10 @@
       function createCard(imgUrl) {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.innerHTML = `
+        card.innerHTML = \`
           <div class='back'></div>
-          <div class='front' style='background-image: url('${imgUrl}');'></div>
-        `;
+          <div class='front' style='background-image: url('\${imgUrl}');'></div>
+        \`;
         card.addEventListener('click', () => {
           if (lockBoard || card.classList.contains('flipped')) return;
           card.classList.add('flipped');
@@ -95,7 +94,7 @@
                 secondCard.classList.remove('flipped');
                 firstCard = null;
                 lockBoard = false;
-              }, 3000);
+              }, 1000);
             }
           }
         });
